@@ -5,7 +5,6 @@ export default class Deck {
     public cards!: Card[];
     private constructor() {
         this.getNewDeck();
-        console.log("fuck");
     }
 
     public static getInstance() {
@@ -32,7 +31,6 @@ export default class Deck {
         let card = this.cards.splice(cardPos, 1);
         card[0].revealed = revealed;
 
-        console.log(card);
         return card[0];
     }
 
