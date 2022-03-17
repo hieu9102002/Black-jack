@@ -2,7 +2,7 @@ import { MouseEventHandler } from "react";
 
 export type outcome = "draw" | "player" | "house";
 
-const Reset = ({ playerScore, AIScore, resetGame }: { playerScore: number, AIScore: number, resetGame: Function }) => {
+const Reset = ({ playerScore, AIScore, resetGame, bet }: { playerScore: number, AIScore: number, resetGame: Function, bet: number }) => {
 
     let outcome: outcome;
 
@@ -21,10 +21,9 @@ const Reset = ({ playerScore, AIScore, resetGame }: { playerScore: number, AISco
 
     const printWinner = (): JSX.Element => {
         switch (outcome) {
-            case "draw": return (<p>It's a draw!</p>);
-            case "player": return (<p>The player wins!</p>);
-            default: return (<p>The house wins!</p>);
-
+            case "draw": return (<p>It's a draw! You get back ${bet}</p>);
+            case "player": return (<p>The player wins! You win ${bet*2}</p>);
+            default: return (<p>The house wins! You lose your ${ bet}</p>);
         }
     };
 
